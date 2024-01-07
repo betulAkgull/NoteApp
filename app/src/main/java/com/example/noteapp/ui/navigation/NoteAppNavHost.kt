@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.example.noteapp.ui.createNote.CreateNoteScreen
 import com.example.noteapp.ui.favorites.FavoritesScreen
 import com.example.noteapp.ui.home.HomeScreen
 
@@ -23,6 +24,9 @@ fun NoteAppNavHost(
         }
         composable("favorites") {
             FavoritesScreen()
+        }
+        composable("createNote") {
+            CreateNoteScreen()
         }
     }
 }
