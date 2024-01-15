@@ -17,15 +17,15 @@ fun NoteAppNavHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = "home"
+        startDestination = "Home"
     ) {
-        composable("home") {
-            HomeScreen()
+        composable("Home") {
+            HomeScreen(navController)
         }
-        composable("favorites") {
+        composable("Favorites") {
             FavoritesScreen()
         }
-        composable("createNote") {
+        composable("Create Note") {
             CreateNoteScreen()
         }
     }

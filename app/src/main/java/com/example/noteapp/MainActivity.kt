@@ -9,11 +9,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.noteapp.ui.navigation.NoteAppBottomBar
 import com.example.noteapp.ui.navigation.NoteAppNavHost
 import com.example.noteapp.ui.theme.NoteAppTheme
+import com.example.noteapp.ui.topBar.NoteAppTopBar
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -26,7 +29,18 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
+                    val backStackEntry by navController.currentBackStackEntryAsState()
+                    val currentScreen = backStackEntry?.destination?.route
                     Scaffold(
+                        topBar = {
+                            if (currentScreen != null) {
+                                NoteAppTopBar(
+                                    currentScreen = currentScreen,
+                                    canNavigateBack = navController.previousBackStackEntry != null,
+                                    navigateUp = { navController.navigateUp() }
+                                )
+                            }
+                        },
                         bottomBar = {
                             NoteAppBottomBar(navController = navController)
                         }

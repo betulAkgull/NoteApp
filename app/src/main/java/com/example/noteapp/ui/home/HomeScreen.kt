@@ -19,10 +19,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.noteapp.R
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -43,14 +44,16 @@ fun HomeScreen() {
             text = "Create your first note !",
             color = Color.White
         )
-        Fab()
+        Fab(navController)
     }
 }
 
 @Composable
-fun Fab() {
+fun Fab(navController: NavController) {
     FloatingActionButton(
-        onClick = { /* Handle FAB click here */ },
+        onClick = {
+            navController.navigate("Create Note")
+        },
         modifier = Modifier
             .padding(16.dp)
             .fillMaxSize()
