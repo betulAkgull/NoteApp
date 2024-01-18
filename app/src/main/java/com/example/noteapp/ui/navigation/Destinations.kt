@@ -10,6 +10,6 @@ sealed class Destinations(
     val title: String,
     val icon: ImageVector
 ) {
-    object Home : Destinations("home", "Home", Icons.Rounded.Home)
-    object Favorites : Destinations("favorites", "Favorites", Icons.Rounded.Favorite)
+    object Home : Destinations("Home", "Home", Icons.Rounded.Home)
+    object Favorites : Destinations("Favorites", "Favorites", Icons.Rounded.Favorite)
 }

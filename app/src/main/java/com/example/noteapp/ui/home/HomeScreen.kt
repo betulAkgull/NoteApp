@@ -4,10 +4,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -44,6 +48,13 @@ fun HomeScreen(navController: NavController) {
             text = "Create your first note !",
             color = Color.White
         )
+        Button(
+            onClick = { navController.navigate("Detail") },
+            modifier = Modifier.align(Alignment.BottomCenter),
+            shape = RoundedCornerShape(20.dp)
+        ) {
+            Text(text = "Go to Detail")
+        }
         Fab(navController)
     }
 }

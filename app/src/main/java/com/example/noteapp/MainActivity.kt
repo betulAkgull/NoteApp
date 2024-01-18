@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
                                 NoteAppTopBar(
                                     currentScreen = currentScreen,
                                     canNavigateBack = navController.previousBackStackEntry != null,
-                                    navigateUp = { navController.navigateUp() }
+                                    navController
                                 )
                             }
                         },
